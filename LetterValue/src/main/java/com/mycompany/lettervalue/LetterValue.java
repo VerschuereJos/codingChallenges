@@ -5,56 +5,36 @@
  */
 package com.mycompany.lettervalue;
 
+import java.util.Scanner;
+
 /**
  *
  * @author lumy
  */
 public class LetterValue {
     public static void main(String[] args) {
-        char[] valueTable = tableCreation();
-        
-        String word = "cab";
+        int[] valueTable = tableCreation();
         int wordValue = 0;
-        
+        //obtaining the word via user input
+        Scanner reader = new Scanner(System.in);
+        System.out.println("input a word to get its value");
+        String word = reader.nextLine();
+        //determining the wordvalue by checking the array
         for(int i = 0;i<word.length();i++){
-            for(int j = 0;j<(valueTable.length);j++){
-                if(word.charAt(i)==valueTable[j]){
-                   System.out.print(valueTable[j]); 
-                   wordValue = wordValue + j + 1;
-                }
-                    
-            }
+            wordValue += valueTable[word.charAt(i)];
         }
         System.out.print(wordValue);
     }
-    public static char[] tableCreation(){
-        char[] valueTable = new char[26];
-        valueTable[0]= 'a';
-        valueTable[1]= 'b';
-        valueTable[2]= 'c';
-        valueTable[3]= 'd';
-        valueTable[4]= 'e';
-        valueTable[5]= 'f';
-        valueTable[6]= 'g';
-        valueTable[7]= 'h';
-        valueTable[8]= 'i';
-        valueTable[9]= 'j';
-        valueTable[10]= 'k';
-        valueTable[11]= 'l';
-        valueTable[12]= 'm';
-        valueTable[13]= 'n';
-        valueTable[14]= 'o';
-        valueTable[15]= 'p';
-        valueTable[16]= 'q';
-        valueTable[17]= 'r';
-        valueTable[18]= 's';
-        valueTable[19]= 't';
-        valueTable[20]= 'u';
-        valueTable[21]= 'v';
-        valueTable[22]= 'w';
-        valueTable[23]= 'x';
-        valueTable[24]= 'y';
-        valueTable[25]= 'z';
+    //creation of the array with the letter values, 
+    //with the position in the array corresponding to the decimal ASCII value of the letter
+    public static int[] tableCreation(){
+        int[] valueTable = new int[123];
+        for(int i = 1 ; i<27; i++ ){    
+            valueTable[(char) (i+64)] = i ;   
+        }
+        for(int i = 1 ; i<27; i++ ){    
+            valueTable[(char) (i+96)] = i ;
+        }
         return valueTable;
     }
 }
