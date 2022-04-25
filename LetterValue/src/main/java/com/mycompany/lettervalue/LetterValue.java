@@ -26,14 +26,12 @@ public class LetterValue {
         System.out.print(wordValue);
     }
     //creation of the array with the letter values, 
-    //with the position in the array corresponding to the decimal ASCII value of the letter
+    //with the position in the array corresponding to the decimal ASCII value of the letter.
     public static int[] tableCreation(){
         int[] valueTable = new int[123];
         for(int i = 1 ; i<27; i++ ){    
-            valueTable[(char) (i+64)] = i ;   
-        }
-        for(int i = 1 ; i<27; i++ ){    
-            valueTable[(char) (i+96)] = i ;
+            valueTable[(char) (i+64)] = i ;
+            valueTable[(char) (i+96)] = i ;   
         }
         return valueTable;
     }
